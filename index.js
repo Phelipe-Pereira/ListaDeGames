@@ -34,3 +34,13 @@ app.post("/novogame", (req, res)=> {
     
     res.send("Jogo salvo com sucesso!")
 });
+
+app.put('/novogame/:index', (req, res) =>{
+    const { index } = req.params;
+    let title = req.body.title;
+    let studio = req.body.studio;
+    let price = req.body.price;
+
+    games[index] = { title, studio, price};
+    return res.json(games);
+})
